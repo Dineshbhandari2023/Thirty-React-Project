@@ -6,8 +6,8 @@ interface Props {
 }
 export default function Title({ text, classes }: Props) {
   return (
-    <h1 className={!classes ? "title text-center" : classes}>
-      {!text ? "Title" : text}
+    <h1 className={!classes ? "text-center" : classes && "title"}>
+      {!text ? "Your Signature" : text}
     </h1>
   );
 }

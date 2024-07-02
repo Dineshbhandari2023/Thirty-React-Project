@@ -1,10 +1,12 @@
 import "./App.css";
-import ESignature from "./projects/ESignatureApp";
+import RandomiseColor from "./projects/RandomiseColor";
+// import ESignature from "./projects/ESignatureApp";
 
 function App() {
   return (
     <div>
-      <ESignature />
+      {/* <ESignature /> */}
+      <RandomiseColor />
     </div>
   );
 }
