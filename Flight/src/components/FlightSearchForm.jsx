@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import FareType from "./FareType";
 import { FaArrowRightArrowLeft } from "react-icons/fa6";
+import { SlArrowDown } from "react-icons/sl";
 
 function FlightSearchForm() {
   const [tripType, setTripType] = useState("roundTrip");
@@ -12,10 +14,10 @@ function FlightSearchForm() {
   const [travelClass, setTravelClass] = useState("Economy");
 
   return (
-    <div className="flex justify-center items-center h-screen w-screen">
-      <div className="p-8 h-60 border border-gray-300 rounded-lg shadow-lg bg-white">
+    <div className="m-4 flex justify-center items-center h-screen w-screen bg-blue-100">
+      <div className=" m-1 p-4 h-60 w-[1296px] border border-gray-300 rounded-lg shadow-lg bg-white">
         {/* Trip Type Container */}
-        <div className="flex flex-initial gap-1 ">
+        <div className="flex flex-initial ">
           <label className="mr-2">
             <input
               type="radio"
@@ -23,7 +25,7 @@ function FlightSearchForm() {
               value="oneWay"
               checked={tripType === "oneWay"}
               onChange={() => setTripType("oneWay")}
-              className="mr-3"
+              className="mr-2 size-4"
             />
             One Way
           </label>
@@ -34,60 +36,93 @@ function FlightSearchForm() {
               value="roundTrip"
               checked={tripType === "roundTrip"}
               onChange={() => setTripType("roundTrip")}
-              className="mr-3"
+              className="mr-2 size-4"
             />
             Round Trip
           </label>
         </div>
 
-        <div className="">
-          <div className="p-4 mb-2 flex flex-row tracking-tighter">
+        <div className="flex">
+          <div className="p-2 m-1 flex flex-row ">
             {/* From and To Container */}
-            <div className="p-4 mb-2 flex flex-row tracking-tighter">
-              <div className="p-4 border border-gray-300 rounded-md cursor-pointer">
-                <label className="flex font-medium text-sm text-gray-700">
+            <div className="p-4 mb-1 flex flex-row tracking-tighter">
+              <div className="p-2 border border-gray-300 rounded-l-lg cursor-pointer">
+                <label className="flex font-medium text-sm text-gray-700 tracking-wide">
                   From
                 </label>
-                <div className="p-2 text-xl font-semibold">{from}</div>
-                <div className="text-sm text-gray-500">
+                <div className="pr-1 text-xl text-gray-700 font-bold tracking-wide">
+                  {from}
+                </div>
+                <div className="text-xs text-gray-500 tracking-wide">
                   Hazrat Shahjalal International Airport
                 </div>
               </div>
 
-              <div className="p-4 border border-gray-300 rounded-md cursor-pointer">
-                <label className="flex font-medium text-sm text-gray-700">
+              <div className="p-2 border border-gray-300 rounded-r-lg cursor-pointer">
+                <label className="flex font-medium text-sm text-gray-700 tracking-wide">
                   To
                 </label>
-                <div className="p-2 text-xl font-semibold">{to}</div>
-                <div className="text-sm text-gray-500">
+                <div className="pr-1 text-xl text-gray-700 font-bold tracking-wide">
+                  {to}
+                </div>
+                <div className="text-xs text-gray-500 tracking-wide">
                   Hazrat Shahjalal International Airport
                 </div>
               </div>
             </div>
-
+            {/* From and To Container */}
             {/* Departure and Return Container */}
-            <div className="p-4 mb-2 flex flex-row tracking-tighter">
-              <div className="p-1 border border-gray-300 rounded-l-lg cursor-pointer">
-                <label className="flex font-medium text-sm text-gray-700">
-                  Departure
+
+            <div className="p-4 mb-1 flex flex-row tracking-tighter">
+              <div className="p-2 border border-gray-300 rounded-l-lg cursor-pointer">
+                <label className="flex font-medium text-sm text-gray-700 tracking-wide">
+                  Departure{" "}
+                  <SlArrowDown className="m-1 size-3 cursor-pointer" />
                 </label>
-                <div className="p-2 text-xl font-semibold">{from}</div>
-                <div className="text-sm text-gray-500">
+
+                <div className="pr-1 text-xl text-gray-700 font-bold tracking-wide">
+                  {departureDate}
+                </div>
+                <div className="text-xs text-gray-500 tracking-wide">
                   Hazrat Shahjalal International Airport
                 </div>
               </div>
 
-              <div className="p-1 border border-gray-300 rounded-r-lg cursor-pointer">
-                <label className="flex font-medium text-sm text-gray-700">
-                  Return
+              <div className="p-2 border border-gray-300 rounded-r-lg cursor-pointer">
+                <label className="flex font-medium text-sm text-gray-700 tracking-wide">
+                  Return <SlArrowDown className="m-1 size-3 cursor-pointer" />
                 </label>
-                <div className="pr-1 text-xl font-semibold">{to}</div>
-                <div className="text-sm text-gray-500">
+                <div className="pr-1 text-xl text-gray-700 font-bold tracking-wide">
+                  {returnDate}
+                </div>
+                <div className="text-xs text-gray-500 tracking-wide">
                   Hazrat Shahjalal International Airport
                 </div>
               </div>
             </div>
+            {/* Departure and Return Container */}
+            {/* Traveller  Container */}
+            <div className="p-4 mb-2 flex flex-row tracking-tighter">
+              <div className="p-2 border border-gray-300 rounded-lg cursor-pointer">
+                <label className="flex text-sm text-gray-700 tracking-wide">
+                  Traveller & Booking Class
+                </label>
+                <div className="pr-1 text-xl text-gray-700 font-bold tracking-wide">
+                  {travelers} Traveler
+                </div>
+                <div className="text-xs text-gray-500 tracking-wide">
+                  Hazrat Shahjalal International Airport
+                </div>
+              </div>
+            </div>
+            {/* Traveller container */}
           </div>
+        </div>
+        <FareType />
+        <div className="text-center ">
+          <button className="relative mb-10 bg-blue-600 text-white px-6 py-3 rounded-md text-md font-semibold font-sans">
+            Modify Search
+          </button>
         </div>
       </div>
     </div>
@@ -95,73 +130,3 @@ function FlightSearchForm() {
 }
 
 export default FlightSearchForm;
-
-// import React from "react";
-
-// const FlightSearchForm = () => {
-//   return (
-//     <div className="min-h-screen flex flex-col items-center bg-gray-100">
-//       <header className="w-full p-4 bg-white shadow-md flex justify-between items-center">
-//         <div className="text-xl font-bold">Logo</div>
-//         <button className="bg-blue-500 text-white px-4 py-2 rounded">
-//           Sign in
-//         </button>
-//       </header>
-
-//       <main className="flex flex-col items-center mt-8 w-full px-4">
-//         <div className="bg-white p-8 rounded shadow-md w-full max-w-2xl">
-//           <div className="mb-4">
-//             <label className="mr-4">
-//               <input type="radio" name="tripType" value="oneWay" /> One Way
-//             </label>
-//             <label>
-//               <input type="radio" name="tripType" value="roundTrip" /> Round
-//               Trip
-//             </label>
-//           </div>
-//           <div className="flex flex-wrap gap-4 mb-4">
-//             <input
-//               type="text"
-//               placeholder="From"
-//               className="flex-1 p-2 border rounded"
-//             />
-//             <input
-//               type="text"
-//               placeholder="To"
-//               className="flex-1 p-2 border rounded"
-//             />
-//             <input type="date" className="flex-1 p-2 border rounded" />
-//             <input type="date" className="flex-1 p-2 border rounded" />
-//             <input
-//               type="text"
-//               placeholder="Passengers"
-//               className="flex-1 p-2 border rounded"
-//             />
-//           </div>
-//           <div className="flex flex-wrap gap-4 mb-4">
-//             <input
-//               type="text"
-//               placeholder="Fare Type"
-//               className="flex-1 p-2 border rounded"
-//             />
-//             <input
-//               type="text"
-//               placeholder="Class"
-//               className="flex-1 p-2 border rounded"
-//             />
-//             <input
-//               type="text"
-//               placeholder="Promo Code"
-//               className="flex-1 p-2 border rounded"
-//             />
-//           </div>
-//           <button className="w-full bg-blue-500 text-white p-2 rounded">
-//             Search
-//           </button>
-//         </div>
-//       </main>
-//     </div>
-//   );
-// };
-
-// export default FlightSearchForm;
