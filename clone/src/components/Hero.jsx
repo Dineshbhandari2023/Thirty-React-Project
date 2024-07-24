@@ -3,7 +3,7 @@ import asset1 from "../assets/asset 1.jpeg";
 
 const Hero = () => {
   return (
-    <div className="grid grid-cols-2 bg-bg ">
+    <section className="grid grid-cols-2 bg-bg ">
       <div className="z-10 mt-20 ml-96 bg-gradient-to-r from-primary to-secondary h-[500px] w-[400px] justify-center rounded-lg">
         <h3 className="pl-14 justify-center mt-40 text-6xl font-semibold tracking-wider">
           Adivasi <br /> Herbal
@@ -14,14 +14,14 @@ const Hero = () => {
         </button>
       </div>
 
-      <div className="flex pt-14 pr-40 justify-end text-center ">
+      <div className="relative pt-14 pr-40 justify-end text-center ">
         <img
-          className=" h-[550px] w-[1000px] rounded-lg shadow-2xl tracking-wider"
+          className=" h-[550px] w-[1500px] rounded-lg shadow-2xl tracking-wider"
           src={asset1}
           alt="backgroundimg"
         />
       </div>
-    </div>
+    </section>
   );
 };
 

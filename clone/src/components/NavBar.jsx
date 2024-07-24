@@ -13,7 +13,7 @@ const NavBar = () => {
       </div>
       <div className="justify-center text-center bg-bg">
         <div className="flex justify-center">
-          <IoIosSearch className="absolute ml-[390px] my-10 lg:mr-[1100px] justify-center size-6 cursor-pointer" />
+          <IoIosSearch className="absolute ml-[390px] my-10 lg:mr-[1300px] justify-center size-6 cursor-pointer" />
           <img
             className="flex m-4 justify-center text-center h-24 w-72"
             src={logo}
