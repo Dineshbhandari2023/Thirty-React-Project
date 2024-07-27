@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { geoGetApiOptions, GEO_API_URL } from "../../Api";
@@ -14,10 +14,10 @@ const Search = ({ onSearchChange }) => {
       .then((response) => response.json())
       .then((response) => {
         return {
-          option: response.data.map((city) => {
+          options: response.data.map((city) => {
             return {
-              value: `${city.latitude} ${city.longitude}`,
-              label: city.name`${city.name} ${city.countryCode}`,
+              value: `${city.latitude}, ${city.longitude}`,
+              label: `${city.name}, ${city.countryCode}`,
             };
           }),
         };
@@ -25,17 +25,17 @@ const Search = ({ onSearchChange }) => {
       .catch((err) => console.log(err));
   };
 
-  const handleOnChange = (value) => {
-    setSearch(value);
-    onSearchChange(value);
+  const handleOnChange = (searchData) => {
+    setSearch(searchData);
+    onSearchChange(searchData);
   };
   return (
     <AsyncPaginate
       placeholder="Search for the city.."
-      debounceTimeout={700}
+      debounceTimeout={600}
       value={search}
       onChange={handleOnChange}
-      loadOption={loadOptions}
+      loadOptions={loadOptions}
     />
   );
 };
