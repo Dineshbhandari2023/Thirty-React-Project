@@ -1,64 +1,17 @@
-// "use client";
-
-// import { useCall, VideoPreview } from "@stream-io/video-react-sdk";
-// import React, { useEffect, useState } from "react";
-
-// const MeetingSetup = () => {
-//   const [isMicCamToggledOn, setIsMicCamToggledOn] = useState(false);
-
-//   const call = useCall();
-
-//   if (!call) {
-//     throw new Error("useCall must be used within  stream call component");
-//   }
-
-//   useEffect(() => {
-//     if (call && call.camera && call.microphone) {
-//       if (isMicCamToggledOn) {
-//         call.camera.disable();
-//         call.microphone.disable();
-//       } else {
-//         call.camera.enable();
-//         call.microphone.enable();
-//       }
-//     } else {
-//       console.log("Call object, camera, or microphone is not available.");
-//     }
-//   }, [isMicCamToggledOn, call]);
-
-//   return (
-//     <div className="flex h-screen w-full flex-col items-center justify-center gap-3 text-white">
-//       <h1 className="text-2xl font-bold">SetUp</h1>
-
-//       <VideoPreview />
-//       <div className="flex h-16 items-center justify-center gap-3">
-//         <label
-//           htmlFor=""
-//           className="flex items-center justify-center gap-2 font-medium"
-//         >
-//           <input
-//             type="checkbox"
-//             checked={isMicCamToggledOn}
-//             onChange={(e) => {
-//               setIsMicCamToggledOn(e.target.checked);
-//             }}
-//           />
-//           Join With the camera and mic off
-//         </label>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default MeetingSetup;
-
-// MeetingSetup.tsx
 "use client";
-
-import { useCall, VideoPreview } from "@stream-io/video-react-sdk";
+import {
+  DeviceSettings,
+  useCall,
+  VideoPreview,
+} from "@stream-io/video-react-sdk";
 import React, { useEffect, useState } from "react";
+import { Button } from "./ui/button";
 
-const MeetingSetup = ({ onSetupComplete }: { onSetupComplete: () => void }) => {
+const MeetingSetup = ({
+  setIsSetupComplete,
+}: {
+  setIsSetupComplete: (value: boolean) => void;
+}) => {
   const [isMicCamToggledOn, setIsMicCamToggledOn] = useState(false);
   const call = useCall();
 
@@ -69,11 +22,11 @@ const MeetingSetup = ({ onSetupComplete }: { onSetupComplete: () => void }) => {
   useEffect(() => {
     if (call.camera && call.microphone) {
       if (isMicCamToggledOn) {
-        call.camera.disable();
-        call.microphone.disable();
+        call?.camera.disable();
+        call?.microphone.disable();
       } else {
-        call.camera.enable();
-        call.microphone.enable();
+        call?.camera.enable();
+        call?.microphone.enable();
       }
     } else {
       console.log("Call object, camera, or microphone is not available.");
@@ -93,13 +46,17 @@ const MeetingSetup = ({ onSetupComplete }: { onSetupComplete: () => void }) => {
           />
           Join With the camera and mic off
         </label>
+        <DeviceSettings />
       </div>
-      <button
-        onClick={onSetupComplete}
-        className="mt-5 bg-blue-500 p-2 rounded-md"
+      <Button
+        onClick={() => {
+          call.join();
+          setIsSetupComplete(true);
+        }}
+        className="bg-green-500 px-4 py-2.5 rounded-md"
       >
-        Start Meeting
-      </button>
+        Join Meeting
+      </Button>
     </div>
   );
 };
