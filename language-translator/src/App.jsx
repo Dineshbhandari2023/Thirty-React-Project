@@ -9,7 +9,7 @@ export default function App() {
   const [text, setText] = useState("");
 
   return (
-    <div className="m-5 p-6">
+    <div className="m-5 p-6 ">
       <Field onChange={setText} />
       <Languages language={language} onLanguageChange={setLanguage} />
       <hr />

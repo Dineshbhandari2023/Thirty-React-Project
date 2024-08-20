@@ -7,7 +7,7 @@ function Field({ value, onChange }) {
       {/* <Flower className="flower-right" fill="rgb(110, 146, 119)" />
       <Flower className="flower-left" fill="rgb(249, 148, 59)" /> */}
       <h1>Translate App</h1>
-      <label>Enter English</label>
+      <label>Enter your text:</label>
       <input
         className="input p-1 m-2 text-black"
         value={value}
