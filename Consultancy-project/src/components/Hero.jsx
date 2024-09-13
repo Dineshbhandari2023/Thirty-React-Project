@@ -1,17 +1,17 @@
-import NavBar from "./Home/NavBar";
+// import NavBar from "./Home/NavBar";
 import Banner from "./Home/Banner";
 import Summary from "./Home/Summary";
 import College from "./Home/College";
-import Footer from "./Home/Footer";
+// import Footer from "./Home/Footer";
 
 const Hero = () => {
   return (
     <div className="flex flex-col">
-      <NavBar />
+      {/* <NavBar /> */}
       <Banner />
       <Summary />
       <College />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
