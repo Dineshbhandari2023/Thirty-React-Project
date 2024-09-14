@@ -1,293 +1,93 @@
 import React from "react";
 import review from "../../../public/images/review.jpg";
 import { Parallax } from "react-parallax";
+import client1 from "../../../public/images/client1.jpg";
+import client2 from "../../../public/images/client2.jpg";
+import client3 from "../../../public/images/client3.jpg";
+import client4 from "../../../public/images/client4.jpg";
+import client5 from "../../../public/images/client5.jpg";
+import client6 from "../../../public/images/client6.jpg";
+import Slider from "react-slick";
+
+const data = [
+  {
+    name: "Client1",
+    image: client1, // Use direct reference
+    description:
+      " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem aliquid, commodi ipsam corporis natus dignissimos deleniti quas. Ipsam cum nobis debitis ducimus ex maiores. Aliquam qui veritatis delectus et aut. Tempore impedit omnis velit sapiente. Reiciendis officiis nostrum perspiciatis repellat corrupti, quasi autem repudiandae? Quos illum odit culpa reprehenderit ex?",
+  },
+  {
+    name: "Client2",
+    image: client2,
+    description:
+      " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem aliquid, commodi ipsam corporis natus dignissimos deleniti quas. Ipsam cum nobis debitis ducimus ex maiores. Aliquam qui veritatis delectus et aut. Tempore impedit omnis velit sapiente. Reiciendis officiis nostrum perspiciatis repellat corrupti, quasi autem repudiandae? Quos illum odit culpa reprehenderit ex?",
+  },
+  {
+    name: "Client3",
+    image: client3,
+    description:
+      " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem aliquid, commodi ipsam corporis natus dignissimos deleniti quas. Ipsam cum nobis debitis ducimus ex maiores. Aliquam qui veritatis delectus et aut. Tempore impedit omnis velit sapiente. Reiciendis officiis nostrum perspiciatis repellat corrupti, quasi autem repudiandae? Quos illum odit culpa reprehenderit ex?",
+  },
+  {
+    name: "Client4",
+    image: client4,
+    description:
+      " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem aliquid, commodi ipsam corporis natus dignissimos deleniti quas. Ipsam cum nobis debitis ducimus ex maiores. Aliquam qui veritatis delectus et aut. Tempore impedit omnis velit sapiente. Reiciendis officiis nostrum perspiciatis repellat corrupti, quasi autem repudiandae? Quos illum odit culpa reprehenderit ex?",
+  },
+  {
+    name: "Client5",
+    image: client5,
+    description:
+      " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem aliquid, commodi ipsam corporis natus dignissimos deleniti quas. Ipsam cum nobis debitis ducimus ex maiores. Aliquam qui veritatis delectus et aut. Tempore impedit omnis velit sapiente. Reiciendis officiis nostrum perspiciatis repellat corrupti, quasi autem repudiandae? Quos illum odit culpa reprehenderit ex?",
+  },
+  {
+    name: "Client6",
+    image: client6,
+    description:
+      " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem aliquid, commodi ipsam corporis natus dignissimos deleniti quas. Ipsam cum nobis debitis ducimus ex maiores. Aliquam qui veritatis delectus et aut. Tempore impedit omnis velit sapiente. Reiciendis officiis nostrum perspiciatis repellat corrupti, quasi autem repudiandae? Quos illum odit culpa reprehenderit ex?",
+  },
+];
 
 const College = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+  };
   return (
     <Parallax
       bgImage={review}
-      bgImageAlt="the cat"
+      bgImageAlt="review image"
       strength={200}
       className="justify-center text-center"
     >
       <h1 className="w-full bg-white m-2 p-5 text-4xl font-bold text-blue-500 font-sans tracking-wide">
         Abroad Study with our Education Consultancy
       </h1>
-      <link
-        href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css"
-        rel="stylesheet"
-      />
-
-      <section className="bg-gray-50">
-        <div className="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
-          <div className="max-w-7xl items-end justify-between sm:flex sm:pe-6 lg:pe-8">
-            <h2 className="max-w-xl text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              Read trusted reviews from our customers
-            </h2>
-
-            <div className="mt-8 flex gap-4 lg:mt-0">
-              <button
-                aria-label="Previous slide"
-                id="keen-slider-previous"
-                className="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+      <div className="w-11/12 m-auto z-10">
+        <div className="flex gap-9 mt-20">
+          <Slider {...settings}>
+            {data.map((client, index) => (
+              <div
+                key={index}
+                className="my-5 p-4 h-96 bg-white shadow-lg rounded-lg"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-5 rtl:rotate-180"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 19.5L8.25 12l7.5-7.5"
+                <div className="flex flex-col items-center">
+                  <img
+                    src={client.image}
+                    alt={client.name}
+                    className="w-32 h-32 rounded-full object-cover mb-4"
                   />
-                </svg>
-              </button>
-
-              <button
-                aria-label="Next slide"
-                id="keen-slider-next"
-                className="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
-              >
-                <svg
-                  className="size-5 rtl:rotate-180"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9 5l7 7-7 7"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <div className="-mx-6 mt-8 lg:col-span-2 lg:mx-0">
-            <div id="keen-slider" className="keen-slider">
-              <div className="keen-slider__slide">
-                <blockquote className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
-                  <div>
-                    <div className="flex gap-0.5 text-green-500">
-                      <svg
-                        className="size-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-
-                      <svg
-                        className="size-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-
-                      <svg
-                        className="size-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-
-                      <svg
-                        className="size-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-
-                      <svg
-                        className="size-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    </div>
-
-                    <div className="mt-4">
-                      <p className="text-2xl font-bold text-rose-600 sm:text-3xl">
-                        Stayin' Alive
-                      </p>
-
-                      <p className="mt-4 leading-relaxed text-gray-700">
-                        No, Rose, they are not breathing. And they have no arms
-                        or legs … Where are they? You know what? If we come
-                        across somebody with no arms or legs, do we bother
-                        resuscitating them? I mean, what quality of life do we
-                        have there?
-                      </p>
-                    </div>
-                  </div>
-
-                  <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
-                    &mdash; Michael Scott
-                  </footer>
-                </blockquote>
+                  <h2 className="text-2xl font-semibold">{client.name}</h2>
+                  <p className="text-gray-600 mt-2">{client.description}</p>
+                </div>
               </div>
-
-              <div className="keen-slider__slide">
-                <blockquote className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
-                  <div>
-                    <div className="flex gap-0.5 text-green-500">
-                      <svg
-                        className="size-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-
-                      <svg
-                        className="size-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-
-                      <svg
-                        className="size-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-
-                      <svg
-                        className="size-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-
-                      <svg
-                        className="size-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    </div>
-
-                    <div className="mt-4">
-                      <p className="text-2xl font-bold text-rose-600 sm:text-3xl">
-                        Stayin' Alive
-                      </p>
-
-                      <p className="mt-4 leading-relaxed text-gray-700">
-                        No, Rose, they are not breathing. And they have no arms
-                        or legs … Where are they? You know what? If we come
-                        across somebody with no arms or legs, do we bother
-                        resuscitating them? I mean, what quality of life do we
-                        have there?
-                      </p>
-                    </div>
-                  </div>
-
-                  <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
-                    &mdash; Michael Scott
-                  </footer>
-                </blockquote>
-              </div>
-
-              <div className="keen-slider__slide">
-                <blockquote className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
-                  <div>
-                    <div className="flex gap-0.5 text-green-500">
-                      <svg
-                        className="size-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-
-                      <svg
-                        className="size-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-
-                      <svg
-                        className="size-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-
-                      <svg
-                        className="size-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-
-                      <svg
-                        className="size-5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    </div>
-
-                    <div className="mt-4">
-                      <p className="text-2xl font-bold text-rose-600 sm:text-3xl">
-                        Stayin' Alive
-                      </p>
-
-                      <p className="mt-4 leading-relaxed text-gray-700">
-                        No, Rose, they are not breathing. And they have no arms
-                        or legs … Where are they? You know what? If we come
-                        across somebody with no arms or legs, do we bother
-                        resuscitating them? I mean, what quality of life do we
-                        have there?
-                      </p>
-                    </div>
-                  </div>
-
-                  <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
-                    &mdash; Michael Scott
-                  </footer>
-                </blockquote>
-              </div>
-            </div>
-          </div>
+            ))}
+          </Slider>
         </div>
-      </section>
+      </div>
     </Parallax>
   );
 };
