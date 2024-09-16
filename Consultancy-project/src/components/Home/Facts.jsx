@@ -6,11 +6,10 @@ const Facts = () => {
       {/* Container */}
       <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-20">
         {/* Title */}
-        <div className="mb-12 flex flex-col md:flex-row">
-          <h2 className="mb-8 text-3xl max-w-lg font-bold md:mb-12 md:text-5xl lg:mb-16">
-            Facts about FlowSpark
-          </h2>
-        </div>
+        <h2 className="mb-8 text-3xl max-w-lg font-bold md:mb-12 md:text-5xl lg:mb-16">
+          Facts about our Consultancy
+        </h2>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* FactsCard */}
           <div className="bg-gray-100 rounded-lg py-10 px-5 flex flex-col justify-between h-80">
