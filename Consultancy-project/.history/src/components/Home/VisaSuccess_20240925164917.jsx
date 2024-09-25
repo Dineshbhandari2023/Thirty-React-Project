@@ -1,0 +1,43 @@
+import React from "react";
+import client4 from "../../../public/images/client4.jpg";
+import client5 from "../../../public/images/client5.jpg";
+import client6 from "../../../public/images/client6.jpg";
+import client3 from "../../../public/images/client3.jpg";
+import Slider from "react-slick";
+
+const VisaSuccess = () => {
+  var settings = {
+    dots: true,
+    arrow: false,
+    infinite: true,
+    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    cssEase: "linear",
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    pauseOnHover: true,
+    pauseOnFocus: true,
+  };
+  return (
+    <Slider
+      {...settings}
+      className="flex justify-between text-center gap-4 bg-white"
+    >
+      <div>
+        <img alt="Client Image" className="h-auto w-auto" src={client3} />
+      </div>
+      <div>
+        <img alt="Client Image" className="h-[300px] w-[400px]" src={client4} />
+      </div>
+      <div>
+        <img alt="Client Image" className="h-[300px] w-[400px]" src={client5} />
+      </div>
+      <div>
+        <img alt="Client Image" className="h-[300px] w-[400px]" src={client6} />
+      </div>
+    </Slider>
+  );
+};
+
+export default VisaSuccess;
