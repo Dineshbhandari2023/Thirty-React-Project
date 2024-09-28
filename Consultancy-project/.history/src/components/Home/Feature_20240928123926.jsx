@@ -43,11 +43,11 @@ const Feature = () => {
                 alt="Team-Image"
                 className="inline-block h-60 w-full object-cover rounded-md"
               />
-              <h3 className="text-3xl font-bold tracking-wide ">{team.Name}</h3>
+              <h3 className="text-3xl font-bold ">{team.Name}</h3>
               <p className="text-2xl text-[#FC5E08] font-semibold tracking-wide">
                 {team.Post}
               </p>
-              <p className="text-lg text-gray-500 tracking-wide">
+              <p className="text-sm text-gray-500 tracking-wider">
                 {team.Description}
               </p>
             </div>

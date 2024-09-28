@@ -1,5 +1,4 @@
 import emailjs from "@emailjs/browser";
-import { useState, useRef } from "react";
 
 const AppointmentPopup = ({ onClose }) => {
   const [name, setName] = useState("");

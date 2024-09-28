@@ -16,9 +16,7 @@ const VisaSuccess = () => {
 
   return (
     <>
-      <h1 className="justify-center text-center text-5xl m-4 text-[#FC5E08] font-bold">
-        Visa Success
-      </h1>
+      <h1 className="justify-center text-center">Visa Success</h1>
       <Slider
         {...settings}
         className="flex justify-between text-center gap-4 bg-white m-4"

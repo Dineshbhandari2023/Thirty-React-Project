@@ -16,7 +16,7 @@ const VisaSuccess = () => {
 
   return (
     <>
-      <h1 className="justify-center text-center text-5xl m-4 text-[#FC5E08] font-bold">
+      <h1 className="justify-center text-center text-3xl font-bold">
         Visa Success
       </h1>
       <Slider

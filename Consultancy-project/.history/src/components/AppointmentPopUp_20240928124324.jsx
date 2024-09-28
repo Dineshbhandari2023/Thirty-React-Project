@@ -1,14 +1,12 @@
 import emailjs from "@emailjs/browser";
-import { useState, useRef } from "react";
 
 const AppointmentPopup = ({ onClose }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
   const [Message, setMessage] = useState("");
 
   const handleClick = () => {
-    alert("Appointment Sent Succesfully!");
+    alert("Email sent Succesfully!");
   };
   const form = useRef();
   const sendEmail = (e) => {
@@ -16,7 +14,6 @@ const AppointmentPopup = ({ onClose }) => {
     setName("");
     setEmail("");
     setMessage("");
-    setPhone("");
 
     emailjs
       .sendForm("service_5vg1dmk", "template_2osj0cd", form.current, {
@@ -51,9 +48,6 @@ const AppointmentPopup = ({ onClose }) => {
               Full Name
             </label>
             <input
-              onChange={(e) => {
-                setName(e.target.value);
-              }}
               type="text"
               className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-orange-600"
               placeholder="Enter your full name"
@@ -65,9 +59,6 @@ const AppointmentPopup = ({ onClose }) => {
               Email Address
             </label>
             <input
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
               type="email"
               className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-orange-600"
               placeholder="Enter your email"
@@ -80,9 +71,6 @@ const AppointmentPopup = ({ onClose }) => {
                 Phone Number
               </label>
               <input
-                onChange={(e) => {
-                  setPhone(e.target.value);
-                }}
                 type="text"
                 className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-orange-600"
                 placeholder="Enter phone number"
@@ -115,9 +103,6 @@ const AppointmentPopup = ({ onClose }) => {
               Message
             </label>
             <textarea
-              onChange={(e) => {
-                setMessage(e.target.value);
-              }}
               className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-orange-600"
               rows="4"
               placeholder="Enter your message"
@@ -126,8 +111,6 @@ const AppointmentPopup = ({ onClose }) => {
 
           <div className="flex justify-end">
             <button
-              onClick={handleClick}
-              value="send"
               type="submit"
               className="bg-orange-600 text-white font-bold py-2 px-4 rounded hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-600"
             >

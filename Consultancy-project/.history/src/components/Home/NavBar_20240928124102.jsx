@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import logo from "../../../public/images/logo.png";
 import logo2 from "../../../public/images/logo2.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import AppointmentPopup from "../AppointmentPopUp";
 
-const NavBar = () => {
+const NavBar = ({ showPopup }) => {
   const [showPopup, setShowPopup] = useState(false);
-
+  const navigate = useNavigate();
   let { pathname } = useLocation();
   let subPage = pathname.split("/")?.[1];
 

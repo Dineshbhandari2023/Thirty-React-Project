@@ -1,5 +1,4 @@
 import emailjs from "@emailjs/browser";
-import { useState, useRef } from "react";
 
 const AppointmentPopup = ({ onClose }) => {
   const [name, setName] = useState("");
@@ -8,7 +7,7 @@ const AppointmentPopup = ({ onClose }) => {
   const [Message, setMessage] = useState("");
 
   const handleClick = () => {
-    alert("Appointment Sent Succesfully!");
+    alert("Email sent Succesfully!");
   };
   const form = useRef();
   const sendEmail = (e) => {

@@ -47,7 +47,7 @@ const Feature = () => {
               <p className="text-2xl text-[#FC5E08] font-semibold tracking-wide">
                 {team.Post}
               </p>
-              <p className="text-lg text-gray-500 tracking-wide">
+              <p className="text-sm text-gray-500 tracking-wider">
                 {team.Description}
               </p>
             </div>

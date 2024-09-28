@@ -73,7 +73,6 @@ const Summary = () => {
           Appointment
         </button>
       </div>
-      {showPopup && <AppointmentPopup onClose={() => setShowPopup(false)} />}
     </div>
   );
 };

@@ -3,7 +3,6 @@ import banner1 from "../../../public/images/summary.png";
 import banner2 from "../../../public/images/summary1.png";
 import { FaPaperPlane } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import AppointmentPopup from "../AppointmentPopUp";
 
 const Summary = () => {
@@ -73,7 +72,6 @@ const Summary = () => {
           Appointment
         </button>
       </div>
-      {showPopup && <AppointmentPopup onClose={() => setShowPopup(false)} />}
     </div>
   );
 };
